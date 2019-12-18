@@ -5,14 +5,19 @@
       <bpmn:outgoing>SequenceFlow_0k4pj3d</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0k4pj3d" sourceRef="StartEvent_1" targetRef="Task_1lyfnqa" />
-    <bpmn:endEvent id="EndEvent_0oj9lip" name="Process request">
-      <bpmn:incoming>SequenceFlow_0va1j1o</bpmn:incoming>
+    <bpmn:endEvent id="EndEvent_0oj9lip" name="Approved&#10;process request&#10;">
+      <bpmn:incoming>SequenceFlow_17547ve</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0va1j1o" sourceRef="Task_1lyfnqa" targetRef="EndEvent_0oj9lip" />
+    <bpmn:sequenceFlow id="SequenceFlow_0va1j1o" sourceRef="Task_1lyfnqa" targetRef="Task_15fd90p" />
     <bpmn:userTask id="Task_1lyfnqa" name="Check request" camunda:formKey="embedded:app:forms/approve-loan.html">
       <bpmn:incoming>SequenceFlow_0k4pj3d</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0va1j1o</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:serviceTask id="Task_15fd90p" name="Process request" camunda:class="ru.perm.v.camunda.springbootfirst.ProcessRequestDelegate">
+      <bpmn:incoming>SequenceFlow_0va1j1o</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_17547ve</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_17547ve" sourceRef="Task_15fd90p" targetRef="EndEvent_0oj9lip" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_request">
@@ -27,18 +32,25 @@
         <di:waypoint x="340" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0oj9lip_di" bpmnElement="EndEvent_0oj9lip">
-        <dc:Bounds x="572" y="99" width="36" height="36" />
+        <dc:Bounds x="842" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="552" y="142" width="80" height="14" />
+          <dc:Bounds x="825" y="142" width="79" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0va1j1o_di" bpmnElement="SequenceFlow_0va1j1o">
         <di:waypoint x="440" y="117" />
-        <di:waypoint x="572" y="117" />
+        <di:waypoint x="560" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0htcalx_di" bpmnElement="Task_1lyfnqa">
         <dc:Bounds x="340" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_104l36d_di" bpmnElement="Task_15fd90p">
+        <dc:Bounds x="560" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_17547ve_di" bpmnElement="SequenceFlow_17547ve">
+        <di:waypoint x="660" y="117" />
+        <di:waypoint x="842" y="117" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
