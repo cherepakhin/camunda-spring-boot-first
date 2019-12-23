@@ -46,3 +46,12 @@ public class ProcessRequestDelegate implements JavaDelegate {
   }
 }
 ```
+
+### Тестовый пример
+
+Для проверки развернут сервис по адресу [http://v.perm.ru:8080/spring-boot-first-1](http://v.perm.ru:8080/spring-boot-first-1)
+
+Login: vasi
+Password: pass
+
+Перейти в *Task list*, выбрать в меню "Start Process"
