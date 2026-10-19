@@ -2,7 +2,6 @@
 
 [Источник](https://docs.camunda.org/get-started/spring-boot/)
 
-Выполнен в виде war-файла.
 Пример показывает запуск простейшего camunda-процесса.
 
 ![Схема](doc/process_request.png "Схема")
@@ -28,8 +27,18 @@ public class SpringBootFirstApplication {
 }
 
 ```
+Запуск [./run.sh](run.sh):
 
-После деплоя, перейти по ссылке
+````shell
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar target/spring-boot-first-1.jar
+````
+
+Имя/пароль: vasi/pass см.[application.yaml](src/main/resources/application.yaml)
+
+После запуска, перейти по ссылке
+
+[http://127.0.0.1:8080/app/welcome/default/#!/login](http://127.0.0.1:8080/app/welcome/default/#!/login)
+
 [http://127.0.0.1:8080/spring-boot-first-1](http://127.0.0.1:8080/spring-boot-first-1)
 
 Добавлена обработка принятых параметров сервисом (делегатом) в виде метода java-класса
